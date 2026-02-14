@@ -1,1 +1,29 @@
-<p>header works!</p>
+<header [class.scrolled]="isScrolled()">
+  <div class="header-container">
+    
+    <div class="header-logo">
+      <a href="#home" class="logo">
+        <span class="logo-main">Figueira</span>
+        <span class="logo-sub">Barber</span>
+      </a>
+    </div>
+
+    <nav class="nav-links" [class.open]="isMenuOpen()">
+      <a href="#home" (click)="toggleMenu()">Início</a>
+      <a href="#about" (click)="toggleMenu()">Quem Somos</a>
+      <a href="#services" (click)="toggleMenu()">Serviços</a>
+      <a href="#gallery" (click)="toggleMenu()">Galeria</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#agendar" class="btn-agendar" (click)="toggleMenu()">Agendar</a>
+      
+      <button class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+  </div>
+</header>
