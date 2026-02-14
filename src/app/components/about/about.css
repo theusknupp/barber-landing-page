@@ -1,0 +1,234 @@
+/* =========================================
+   TRAVA MESTRA DO ANGULAR
+   ========================================= */
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; /* Corta o mal pela raiz direto no componente */
+}
+
+/* =========================================
+   ESTRUTURA DA SEÇÃO SOBRE MIM
+   ========================================= */
+.about-section {
+  background-color: #1a1a1a;
+  padding: 120px 5%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  /* TRAVA MESTRA: Impede que o quadrado decorativo vaze e crie barra de rolagem no celular */
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.about-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide meio a meio: Texto e Imagens */
+  gap: 60px;
+  align-items: center;
+}
+
+/* =========================================
+   ESTILOS DE TEXTO E TRAJETÓRIA
+   ========================================= */
+.section-subtitle {
+  color: #ff6b00;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  /* Proteção para palavras gigantes não quebrarem o layout no mobile */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.section-title .highlight {
+  color: #ff6b00;
+}
+
+.story-text p {
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 500px;
+}
+
+.story-text strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Os pequenos blocos de autoridade embaixo do texto */
+.stats-grid {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+}
+
+.stat-item h3 {
+  color: #ff6b00;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.stat-item p {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   A COLAGEM DAS 3 IMAGENS (CSS GRID MÁGICO)
+   ========================================= */
+.about-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  position: relative;
+}
+
+/* Um detalhe visual laranja atrás das fotos para dar um charme */
+.about-images::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 150px;
+  height: 150px;
+  background-color: #ff6b00;
+  border-radius: 8px;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+/* =========================================
+   ESTILO E PROTEÇÃO DAS IMAGENS
+   ========================================= */
+.img-wrapper {
+  position: relative;
+  z-index: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  background-color: #121212;
+}
+
+.img-wrapper img {
+  width: 100%;
+  /* ADICIONE ESSA LINHA: A trava de segurança para a imagem não vazar */
+  max-width: 100%; 
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  image-rendering: auto;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.img-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+/* =========================================
+   POSICIONAMENTO DE CADA IMAGEM NO GRID
+   ========================================= */
+.img-tall {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  height: 500px;
+}
+
+.img-small-top {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  height: 240px;
+}
+
+.img-small-bottom {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  height: 240px;
+}
+
+/* =========================================
+   RESPONSIVIDADE DEFINITIVA (TABLET E CELULAR)
+   ========================================= */
+@media (max-width: 960px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* AQUI ESTÁ A SUA IDEIA: Empurrando mais para baixo e empilhando as fotos */
+  .about-images {
+    margin-top: 40px; /* Joga as fotos mais para baixo para respirar */
+    display: flex; /* Tira o Grid e usa Flexbox para empilhar com segurança 100% */
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* Reduzimos e ajustamos o quadrado laranja para ele não vazar na tela pequena */
+  .about-images::before {
+    top: -15px;
+    left: -10px;
+    width: 120px;
+    height: 120px;
+  }
+
+  /* AQUI ESTÁ A SUA IDEIA: Tamanho maior e imponente para a 1ª foto */
+  .img-tall {
+    height: 550px; /* Bem alta no celular */
+    width: 100%;
+  }
+  
+  .img-small-top, .img-small-bottom {
+    height: 300px;
+    width: 100%;
+  }
+}
+
+/* O AJUSTE FINO DE TEXTO E MARGENS DO CELULAR */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 80px 20px; 
+    width: 100%;
+    box-sizing: border-box; 
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem); 
+    line-height: 1.1;
+    word-wrap: break-word;
+  }
+
+  .about-content {
+    text-align: left;
+  }
+
+  .story-text p {
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+
+  .stats-grid {
+    justify-content: flex-start;
+  }
+}

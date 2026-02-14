@@ -1,28 +1,42 @@
-:root {
-  --primary: #1a1a1a;    /* Chumbo quase preto */
-  --accent: #c5a059;     /* Dourado Barbearia */
-  --text-light: #f4f4f4;
-  --text-dark: #333;
-  --transition: all 0.3s ease-in-out;
-}
+/* src/styles.css - O ALICERCE GLOBAL DO PROJETO */
 
+/* 1. Reset definitivo do navegador */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-body {
-  background-color: var(--primary);
-  color: var(--text-light);
-  line-height: 1.6;
+/* 2. Variáveis de Cor Globais */
+:root {
+  --bg-dark: #121212;      
+  --bg-card: #1e1e1e;      
+  --gold: #c5a059;         
+  --orange: #ff6b00;
+  --white: #ffffff;
+  --gray: #a0a0a0;
+  --transition: all 0.3s ease;
 }
 
-section {
-  padding: 80px 10%; /* Respiro nas laterais para desktop */
+/* 3. Travando as raízes do HTML */
+html, body {
+  background-color: var(--bg-dark); /* Agora sim o fundo será PRETO de verdade */
+  color: var(--white);
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden; /* A trava mestra contra rolagem lateral */
+  scroll-behavior: smooth;
 }
 
-@media (max-width: 768px) {
-  section { padding: 60px 5%; } /* Ajuste para o seu celular não espremer o conteúdo */
+/* Estilo para links e botões globais */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
 }

@@ -1,1 +1,33 @@
-<p>gallery works!</p>
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    
+    <div class="section-header">
+      <span class="subtitle">Nosso Portfólio</span>
+      <h2>Galeria de <span class="highlight">Estilo</span></h2>
+      <p>Confira alguns dos nossos trabalhos recentes e inspire-se para o seu próximo visual.</p>
+    </div>
+
+    <swiper-container 
+      class="my-swiper"
+      loop="true" 
+      navigation="true" 
+      pagination="true" 
+      autoplay-delay="3000"
+      slides-per-view="1"
+      space-between="20"
+      breakpoints='{"640": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}}'>
+      
+      <swiper-slide *ngFor="let image of galleryImages">
+        <div class="gallery-item">
+          <img [src]="image.src" [alt]="image.alt">
+          
+          <div class="overlay">
+            <span class="icon-zoom">+</span>
+          </div>
+        </div>
+      </swiper-slide>
+
+    </swiper-container>
+
+  </div>
+</section>
