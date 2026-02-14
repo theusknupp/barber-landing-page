@@ -1,0 +1,82 @@
+/* Reset local para garantir o comportamento do footer */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #0e0d0d;
+    width: 100%;
+    text-align: center;    
+    padding: 20px 25px; /* Aumentei levemente o respiro vertical */
+    border-top: 1px solid rgba(255, 107, 0, 0.2); /* Linha sutil laranja no topo */
+}
+
+/* Redes Sociais Grandes */
+footer .top-footer button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #ff6b00; /* Borda Laranja */
+    background-color: transparent;
+    color: #ff6b00; /* Ícone Laranja */
+    font-size: 24px;
+    cursor: pointer;
+    margin: 15px;
+    transition: .5s;
+}
+
+footer .top-footer button:hover {
+    background-color: #ff6b00;
+    color: #000;
+    transform: translateY(-5px);
+}
+
+/* Divisor e Texto */
+footer .bottom-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+footer .bottom-footer p {
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer .bottom-footer .p1 {
+    color: #a0a0a0; /* Cinza para o desenvolvedor ficar mais discreto */
+    margin: 10px 0px;
+    font-size: 10px;
+}
+
+/* Ícones de Dev Pequenos */
+footer .bottom-footer .icons-dev {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+footer .bottom-footer .icons-dev button {
+    width: 32px; /* Aumentei um pouco para facilitar o clique no mobile */
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .bottom-footer .icons-dev button:hover {
+    background-color: #fff;
+    color: #000;
+}
