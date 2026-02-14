@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.banner-section {
+  background-color: #ff6b00; /* Fundo Laranja */
+  padding: 40px 5%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.banner-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+.banner-item:hover {
+  transform: translateY(-5px);
+}
+
+.icon-box {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   A MÁGICA DOS ÍCONES BOOTSTRAP AQUI
+   ========================================= */
+.icon-box i {
+  font-size: 3.5rem; /* Aumenta o tamanho do ícone */
+  color: #121212;    /* Cor escura para contrastar com o Laranja */
+  line-height: 1;
+}
+
+/* Estilo do '+1K' */
+.number-icon {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #121212;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+/* Estilo do Texto */
+.banner-item p {
+  color: #121212;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   RESPONSIVIDADE 
+   ========================================= */
+@media (max-width: 900px) {
+  .banner-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .banner-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

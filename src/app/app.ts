@@ -5,10 +5,11 @@ import { Header } from './components/header/header';
 import { Gallery } from './components/gallery/gallery';
 import { Footer } from './components/footer/footer';
 import { About } from './components/about/about';
+import { Banner } from './components/banner/banner';
 
 @Component({
   selector: 'app-root',
-  imports: [Home, Services, Header, Gallery, Footer, About],
+  imports: [Home, Services, Header, Gallery, Footer, About, Banner],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
