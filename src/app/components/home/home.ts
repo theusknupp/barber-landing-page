@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
   templateUrl: './home.html',
-  styleUrl: './home.css',
+  styleUrl: './home.css'
 })
-export class Home {
-
+export class Home { // Mude de HomeComponent para Home
+  // Deixe vazio por enquanto, só para o erro sumir
 }

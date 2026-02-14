@@ -1,0 +1,39 @@
+/* Reset básico para tirar as margens padrão do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Definindo as cores do projeto para facilitar */
+:root {
+  --bg-dark: #121212;      /* Fundo principal */
+  --bg-card: #1e1e1e;      /* Fundo de cards/seções */
+  --gold: #c5a059;         /* O dourado da barbearia */
+  --white: #ffffff;
+  --gray: #a0a0a0;
+  --transition: all 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth; /* Para o clique no menu deslizar suavemente */
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--white);
+  overflow-x: hidden; /* Evita barra de rolagem lateral no mobile */
+}
+
+/* Estilo para links e botões globais */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}

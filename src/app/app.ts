@@ -1,8 +1,14 @@
 import { Component, signal } from '@angular/core';
+import { Home } from './components/home/home';
+import { Services } from './components/services/services';
+import { Header } from './components/header/header';
+import { Gallery } from './components/gallery/gallery';
+import { Footer } from './components/footer/footer';
+import { About } from './components/about/about';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [Home, Services, Header, Gallery, Footer, About],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

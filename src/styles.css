@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #1a1a1a;    /* Chumbo quase preto */
+  --accent: #c5a059;     /* Dourado Barbearia */
+  --text-light: #f4f4f4;
+  --text-dark: #333;
+  --transition: all 0.3s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+section {
+  padding: 80px 10%; /* Respiro nas laterais para desktop */
+}
+
+@media (max-width: 768px) {
+  section { padding: 60px 5%; } /* Ajuste para o seu celular não espremer o conteúdo */
+}
