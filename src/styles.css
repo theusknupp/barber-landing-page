@@ -1,13 +1,11 @@
 /* src/styles.css - O ALICERCE GLOBAL DO PROJETO */
 
-/* 1. Reset definitivo do navegador */
+/* No topo do styles.css */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box; /* Fundamental para evitar vazamento de largura */
 }
-
 /* 2. Variáveis de Cor Globais */
 :root {
   --bg-dark: #121212;      
@@ -21,12 +19,10 @@
 
 /* 3. Travando as raízes do HTML */
 html, body {
-  background-color: var(--bg-dark); /* Agora sim o fundo será PRETO de verdade */
-  color: var(--white);
   width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden; /* A trava mestra contra rolagem lateral */
-  scroll-behavior: smooth;
+  overflow-x: hidden; /* Proíbe terminantemente a rolagem para os lados */
+  position: relative;
+  background-color: #121212;
 }
 
 /* Estilo para links e botões globais */

@@ -1,5 +1,5 @@
 /* =========================================
-   ESTRUTURA PRINCIPAL (EXPANDIDA)
+   ESTRUTURA PRINCIPAL (EXPANDIDA & BLINDADA)
    ========================================= */
 header {
   position: fixed;
@@ -7,23 +7,23 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 30px 5%; /* Mais respiro no topo */
+  padding: 30px 5%;
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   pointer-events: none;
+  /* Garante que o padding não estoure a largura de 100% */
+  box-sizing: border-box; 
 }
 
-/* O Formato Expandido (Mais largo e mais alto) */
 .header-container {
-  max-width: 1200px; /* Expandimos a largura aqui */
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 15px 40px; /* Mais preenchimento para ficar mais "robusto" */
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 60px; /* Mantém o formato arredondado elegante */
+  border-radius: 60px;
   
-  /* Efeito Vidro Fosco (Glassmorphism) */
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -31,23 +31,23 @@ header {
   
   transition: all 0.5s ease;
   pointer-events: auto;
+  box-sizing: border-box;
 }
 
-/* Header quando rola a página */
 header.scrolled {
   padding: 15px 5%;
 }
 
 header.scrolled .header-container {
-  background: rgba(18, 18, 18, 0.85); /* Fica mais escuro para dar leitura */
+  background: rgba(18, 18, 18, 0.85);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 107, 0, 0.15); /* Reflexo laranja bem fraco */
+  border: 1px solid rgba(255, 107, 0, 0.15);
 }
 
 /* =========================================
-   ALINHAMENTOS DO GRID / FLEX
+   ALINHAMENTOS
    ========================================= */
 .header-logo {
   flex: 1;
@@ -58,7 +58,7 @@ header.scrolled .header-container {
 .nav-links {
   flex: 2;
   display: flex;
-  gap: 35px; /* Mais espaço entre os links, já que expandimos o header */
+  gap: 35px;
   justify-content: center;
   align-items: center;
 }
@@ -71,14 +71,14 @@ header.scrolled .header-container {
 }
 
 /* =========================================
-   NOVA LOGO (FIGUEIRA BARBER)
+   LOGO (FIGUEIRA BARBER)
    ========================================= */
 .logo {
   display: flex;
-  flex-direction: column; /* Coloca um texto embaixo do outro */
-  align-items: flex-start; /* Alinha tudo pela esquerda */
+  flex-direction: column;
+  align-items: flex-start;
   text-decoration: none;
-  line-height: 1; /* Tira o espaço extra entre as palavras */
+  line-height: 1;
 }
 
 .logo-main {
@@ -92,14 +92,14 @@ header.scrolled .header-container {
 .logo-sub {
   font-size: 0.8rem;
   font-weight: 800;
-  color: #ff6b00; /* Laranja em destaque */
-  letter-spacing: 6px; /* Letras espaçadas dão um ar super premium */
+  color: #ff6b00;
+  letter-spacing: 6px;
   text-transform: uppercase;
-  margin-top: 4px; /* Descola um pouquinho da palavra de cima */
+  margin-top: 4px;
 }
 
 /* =========================================
-   ESTILOS DOS LINKS E BOTÕES
+   LINKS E BOTÕES
    ========================================= */
 .nav-links a {
   color: #e0e0e0;
@@ -126,12 +126,6 @@ header.scrolled .header-container {
   transition: all 0.3s ease;
 }
 
-.btn-agendar:hover {
-  background-color: #e66000;
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
-}
-
 /* =========================================
    BOTÃO HAMBÚRGUER
    ========================================= */
@@ -154,37 +148,50 @@ header.scrolled .header-container {
 }
 
 /* =========================================
-   RESPONSIVIDADE (CELULAR E TABLET)
+   RESPONSIVIDADE (CORREÇÃO DE OVERFLOW)
    ========================================= */
 @media (max-width: 900px) {
+  header {
+    padding: 15px 20px; /* Redução de padding mobile */
+  }
+
   .header-container {
+    width: 100%;
     max-width: 100%;
-    padding: 15px 25px; /* Ajusta o padding para telas pequenas */
+    padding: 12px 20px;
     border-radius: 15px; 
   }
 
   .btn-agendar { display: none; }
   .hamburger { display: flex; }
 
-  /* Menu Lateral Full Screen */
+  /* CORREÇÃO AQUI: Trocamos 'right: -100%' por transform */
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 100%;
     height: 100vh;
     background: rgba(18, 18, 18, 0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
     justify-content: center;
-    transition: right 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     gap: 40px;
+    
+    /* Estado inicial: Escondido via transform (não empurra a tela) */
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    visibility: hidden;
   }
 
-  .nav-links.open { right: 0; }
+  .nav-links.open { 
+    transform: translateX(0); 
+    visibility: visible;
+  }
+
   .nav-links a { font-size: 1.5rem; }
 
-  /* Animação X do Hambúrguer */
+  /* Animação X */
   .hamburger.active .bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
     background-color: #ff6b00;

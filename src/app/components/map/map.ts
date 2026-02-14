@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-services',
+  selector: 'app-map',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './services.html',
-  styleUrl: './services.css'
+  templateUrl: './map.html',
+  styleUrl: './map.css'
 })
-export class Services {}
+export class Map {}

@@ -2,7 +2,7 @@
   <div class="header-container">
     
     <div class="header-logo">
-      <a href="#home" class="logo">
+      <a class="logo">
         <span class="logo-main">Figueira</span>
         <span class="logo-sub">Barber</span>
       </a>
@@ -10,13 +10,14 @@
 
     <nav class="nav-links" [class.open]="isMenuOpen()">
       <a href="#home" (click)="toggleMenu()">Início</a>
-      <a href="#about" (click)="toggleMenu()">Quem Somos</a>
-      <a href="#services" (click)="toggleMenu()">Serviços</a>
+      <a href="#about" (click)="toggleMenu()">Sobre mim</a>
       <a href="#gallery" (click)="toggleMenu()">Galeria</a>
+      <a href="#services" (click)="toggleMenu()">Serviços</a>   
+      <a href="#location" (click)="toggleMenu()">Localização</a>  
     </nav>
 
     <div class="header-actions">
-      <a href="#agendar" class="btn-agendar" (click)="toggleMenu()">Agendar</a>
+      <a href="https://wa.me/5531988185243?text=Olá,%20Figueira!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20horário." target="_blank" class="btn-agendar" (click)="toggleMenu()">Agendar</a>
       
       <button class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen()">
         <span class="bar"></span>
